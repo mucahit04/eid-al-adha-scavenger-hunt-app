@@ -1,0 +1,13 @@
+<div class="home" fxLayout="column" fxLayoutGap="16px" fxLayoutAlign="start stretch">
+    <h2>Your Hunt Locations</h2>
+    <div *ngFor="let loc of locations">
+      <button
+        mat-raised-button
+        color="{{ completed[loc] ? 'primary' : 'warn' }}"
+        (click)="goToLocation(loc)"
+      >
+        Location {{ loc }} - {{ completed[loc] ? 'Completed' : 'Pending' }}
+      </button>
+    </div>
+  </div>
+  

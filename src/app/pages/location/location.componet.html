@@ -1,0 +1,26 @@
+<div class="location" fxLayout="column" fxLayoutGap="24px">
+    <button mat-button (click)="goBack()">← Back</button>
+  
+    <h2>Location {{ locationId }}</h2>
+  
+    <div *ngIf="content.type === 'text'">
+      <p>{{ content.content }}</p>
+    </div>
+  
+    <div *ngIf="content.type === 'video'">
+      <video width="100%" controls>
+        <source [src]="content.content" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>{{ content.question }}</mat-label>
+      <input matInput [(ngModel)]="userAnswer" />
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="checkAnswer()">Submit</button>
+  
+    <p [style.color]="isCorrect ? 'green' : 'red'">{{ feedback }}</p>
+  </div>
+  
